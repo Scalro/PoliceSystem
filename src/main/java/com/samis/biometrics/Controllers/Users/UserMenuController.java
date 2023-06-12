@@ -36,6 +36,7 @@ public class UserMenuController implements Initializable {
         dashboard_btn.setOnAction(event -> onDashboard());
         casesreport_btn.setOnAction(event -> onCasesReportA());
         casesreport_btn1.setOnAction(event -> onCasesReportB());
+        accidentreport_btn.setOnAction(event ->  onAccidentReport());
     }
     public void onDashboard(){
         Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("Dashboard");
@@ -46,5 +47,8 @@ public class UserMenuController implements Initializable {
 
     public void onCasesReportB(){
         Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("CasesReportB");
+    }
+    public void onAccidentReport(){
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("AccidentReport");
     }
 }

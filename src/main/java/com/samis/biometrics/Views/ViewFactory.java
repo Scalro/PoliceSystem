@@ -13,6 +13,7 @@ public class ViewFactory {
     private AnchorPane dashboardView;
     private AnchorPane casesReportAView;
     private AnchorPane casesReportBView;
+    private AnchorPane accidentReportView;
 
     public ViewFactory(){
         this.userSelectedMenuItem = new SimpleStringProperty("");
@@ -55,6 +56,18 @@ public class ViewFactory {
         }
         return casesReportBView;
     }
+
+    public AnchorPane getAccidentReportView() {
+        if (accidentReportView == null) {
+            try {
+                accidentReportView = new FXMLLoader(getClass().getResource("/Fxml/Users/AccidentReport.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return accidentReportView;
+    }
+
     public void showLoginWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         createStage(loader);

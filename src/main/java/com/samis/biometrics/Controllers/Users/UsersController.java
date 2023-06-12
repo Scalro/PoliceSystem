@@ -15,6 +15,7 @@ public class UsersController implements Initializable {
             switch (newVal){
                 case "CasesReportA" -> user_parent.setCenter(Model.getInstance().getViewFactory().getCasesReportAView());
                 case "CasesReportB" -> user_parent.setCenter(Model.getInstance().getViewFactory().getCasesReportBView());
+                case "AccidentReport" -> user_parent.setCenter(Model.getInstance().getViewFactory().getAccidentReportView());
                 default -> user_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
             }
         } );
