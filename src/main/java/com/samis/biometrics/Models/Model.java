@@ -1,6 +1,6 @@
-package com.police.policesystem.Models;
+package com.samis.biometrics.Models;
 
-import com.police.policesystem.Views.ViewFactory;
+import com.samis.biometrics.Views.ViewFactory;
 
 public class Model {
 

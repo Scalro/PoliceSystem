@@ -1,6 +1,6 @@
-package com.police.policesystem.Controllers.Users;
+package com.samis.biometrics.Controllers.Users;
 
-import com.police.policesystem.Models.Model;
+import com.samis.biometrics.Models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,18 +11,18 @@ import java.util.ResourceBundle;
 public class UserMenuController implements Initializable {
 
     @FXML
-    public Button accidentreport_btn;
+    public Button attendance_btn;
 
     @FXML
-    public Button casesreport_btn;
+    public Button addstdnt_btn;
     @FXML
-    public Button casesreport_btn1;
+    public Button checkin_btn;
     @FXML
     public Button dashboard_btn;
     @FXML
     public Button logout_btn;
     @FXML
-    public Button p3report_btn;
+    public Button checkout_btn;
     @FXML
     public Button report_btn;
     @FXML
@@ -34,21 +34,25 @@ public class UserMenuController implements Initializable {
 
     public void addListeners(){
         dashboard_btn.setOnAction(event -> onDashboard());
-        casesreport_btn.setOnAction(event -> onCasesReportA());
-        casesreport_btn1.setOnAction(event -> onCasesReportB());
-        accidentreport_btn.setOnAction(event ->  onAccidentReport());
+        attendance_btn.setOnAction(event -> onAttendance());
+        addstdnt_btn.setOnAction(event -> onAddStudent());
+        checkin_btn.setOnAction(event ->  onCheckIn());
+        checkout_btn.setOnAction(event ->  onCheckOut());
     }
     public void onDashboard(){
         Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("Dashboard");
     }
-    public void onCasesReportA(){
-        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("CasesReportA");
+    public void onAttendance(){
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("Attendance");
     }
 
-    public void onCasesReportB(){
-        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("CasesReportB");
+    public void onAddStudent(){
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("AddStudent");
     }
-    public void onAccidentReport(){
-        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("AccidentReport");
+    public void onCheckIn(){
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("CheckIn");
+    }
+    public void onCheckOut(){
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("CheckOut");
     }
 }

@@ -9,11 +9,11 @@ module com.police.policesystem {
             requires com.dlsc.formsfx;
             requires net.synedra.validatorfx;
                     
-    opens com.police.policesystem to javafx.fxml;
-    exports com.police.policesystem;
-    exports com.police.policesystem.Controllers;
-    exports com.police.policesystem.Controllers.Admin;
-    exports com.police.policesystem.Controllers.Users;
-    exports com.police.policesystem.Models;
-    exports com.police.policesystem.Views;
+    opens com.samis.biometrics to javafx.fxml;
+    exports com.samis.biometrics;
+    exports com.samis.biometrics.Controllers;
+    exports com.samis.biometrics.Controllers.Admin;
+    exports com.samis.biometrics.Controllers.Users;
+    exports com.samis.biometrics.Models;
+    exports com.samis.biometrics.Views;
 }

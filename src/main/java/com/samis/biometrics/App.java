@@ -1,6 +1,6 @@
-package com.police.policesystem;
+package com.samis.biometrics;
 
-import com.police.policesystem.Models.Model;
+import com.samis.biometrics.Models.Model;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

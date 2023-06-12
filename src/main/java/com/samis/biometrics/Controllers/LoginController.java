@@ -1,7 +1,6 @@
-package com.police.policesystem.Controllers;
+package com.samis.biometrics.Controllers;
 
-import com.police.policesystem.Models.Model;
-import javafx.event.ActionEvent;
+import com.samis.biometrics.Models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;

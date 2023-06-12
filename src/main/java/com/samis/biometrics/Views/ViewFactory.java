@@ -1,6 +1,6 @@
-package com.police.policesystem.Views;
+package com.samis.biometrics.Views;
 
-import com.police.policesystem.Controllers.Users.UsersController;
+import com.samis.biometrics.Controllers.Users.UsersController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +11,10 @@ import javafx.stage.Stage;
 public class ViewFactory {
     private final StringProperty userSelectedMenuItem;
     private AnchorPane dashboardView;
-    private AnchorPane casesReportAView;
-    private AnchorPane casesReportBView;
-    private AnchorPane accidentReportView;
+    private AnchorPane attendanceView;
+    private AnchorPane addStudentView;
+    private AnchorPane checkInView;
+    private AnchorPane checkOutView;
 
     public ViewFactory(){
         this.userSelectedMenuItem = new SimpleStringProperty("");
@@ -35,37 +36,48 @@ public class ViewFactory {
         return dashboardView;
     }
 
-    public AnchorPane getCasesReportAView(){
-        if (casesReportAView == null) {
+    public AnchorPane getAttendanceViewView(){
+        if (attendanceView == null) {
             try {
-                casesReportAView = new FXMLLoader(getClass().getResource("/Fxml/Users/CasesReportA.fxml")).load();
+                attendanceView = new FXMLLoader(getClass().getResource("/Fxml/Users/Attendance.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
-        return casesReportAView;
+        return attendanceView;
     }
 
-    public AnchorPane getCasesReportBView(){
-        if (casesReportBView == null) {
+    public AnchorPane getAddStudentViewView(){
+        if (addStudentView == null) {
             try {
-                casesReportBView = new FXMLLoader(getClass().getResource("/Fxml/Users/CasesReportB.fxml")).load();
+                addStudentView = new FXMLLoader(getClass().getResource("/Fxml/Users/AddStudent.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
-        return casesReportBView;
+        return addStudentView;
     }
 
-    public AnchorPane getAccidentReportView() {
-        if (accidentReportView == null) {
+    public AnchorPane getCheckInView() {
+        if (checkInView == null) {
             try {
-                accidentReportView = new FXMLLoader(getClass().getResource("/Fxml/Users/AccidentReport.fxml")).load();
+                checkInView = new FXMLLoader(getClass().getResource("/Fxml/Users/CheckIn.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
-        return accidentReportView;
+        return checkInView;
+    }
+
+    public AnchorPane getCheckOutView() {
+        if (checkOutView == null) {
+            try {
+                checkOutView = new FXMLLoader(getClass().getResource("/Fxml/Users/CheckOut.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return checkOutView;
     }
 
     public void showLoginWindow(){
@@ -91,7 +103,7 @@ public class ViewFactory {
         }
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("Police");
+        stage.setTitle("Samis");
         stage.show();
     }
     public void closeStage(Stage stage){

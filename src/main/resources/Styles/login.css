@@ -5,11 +5,11 @@
 /* Logo Container*/
 
 .login_logo_container {
-    -fx-background-color: linear-gradient(to right,blue,c1c416,maroon,blue);
+    -fx-background-color: linear-gradient(to right,#0000c4,blue);
     -fx-alignment: center;
 }
 .login_logo_container Text {
-    -fx-font-size: 2em;
+    -fx-font-size: 1.5em;
     -fx-fill: #ffffff;
     -fx-font-weight: BOLD;
 }
@@ -31,11 +31,6 @@
 .login_form_container {
     -fx-spacing: 15;
     -fx-alignment: top-left;
-}
-
-.login_form_container Label {
-    -fx-font-size: 1.1em;
-    -fx-font-weight: BOLD;
 }
 
 .input_field {

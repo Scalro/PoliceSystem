@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.police</groupId>
-  <artifactId>PoliceSystem</artifactId>
+  <artifactId>SamisBiometrics</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>PoliceSystem</name>
 
@@ -93,7 +93,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.police.policesystem/com.police.policesystem.App</mainClass>
+              <mainClass>com.police.policesystem/com.samis.biometrics.App</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

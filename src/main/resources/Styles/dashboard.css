@@ -1,6 +1,6 @@
 
 .dashboard {
-    -fx-background-color: linear-gradient(to right,#c1c416,c1c416,#ad1302);
+    -fx-background-color: #eee;
 }
 
 .username {
@@ -24,7 +24,7 @@
 }
 
 .cases_view {
-    -fx-background-color: linear-gradient(to right,#c1c416,c1c416,#ad1302);
+    -fx-background-color: #eee;
     -fx-background-radius: 10 0 0 10;
     -fx-padding: 10 0 10 0;
     -fx-alignment: center;
@@ -39,7 +39,7 @@
 }
 
 .cases_gradient {
-    -fx-background-color: linear-gradient(to right, #090033,#15016e);
+    -fx-background-color: linear-gradient(to right, #0000c4,blue);
 }
 
 .cases FontAwesomeIconView {
@@ -53,7 +53,7 @@
     -fx-font-weight: bold;
 }
 .cases {
-    -fx-text-fill: #fa0509;
+    -fx-text-fill: #fff;
     -fx-font-size: 1.5em;
 }
 

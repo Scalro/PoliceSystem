@@ -1,6 +1,6 @@
-package com.police.policesystem.Controllers.Users;
+package com.samis.biometrics.Controllers.Users;
 
-import com.police.policesystem.Models.Model;
+import com.samis.biometrics.Models.Model;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 
@@ -13,9 +13,10 @@ public class UsersController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Model.getInstance().getViewFactory().getUserSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
             switch (newVal){
-                case "CasesReportA" -> user_parent.setCenter(Model.getInstance().getViewFactory().getCasesReportAView());
-                case "CasesReportB" -> user_parent.setCenter(Model.getInstance().getViewFactory().getCasesReportBView());
-                case "AccidentReport" -> user_parent.setCenter(Model.getInstance().getViewFactory().getAccidentReportView());
+                case "Attendance" -> user_parent.setCenter(Model.getInstance().getViewFactory().getAttendanceViewView());
+                case "AddStudent" -> user_parent.setCenter(Model.getInstance().getViewFactory().getAddStudentViewView());
+                case "CheckIn" -> user_parent.setCenter(Model.getInstance().getViewFactory().getCheckInView());
+                case "CheckOut" -> user_parent.setCenter(Model.getInstance().getViewFactory().getCheckOutView());
                 default -> user_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
             }
         } );

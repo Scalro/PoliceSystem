@@ -1,4 +1,4 @@
-package com.police.policesystem.Controllers.Users;
+package com.samis.biometrics.Controllers.Users;
 
 import javafx.fxml.Initializable;
 
