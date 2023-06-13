@@ -13,10 +13,10 @@ public class UsersController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Model.getInstance().getViewFactory().getUserSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
             switch (newVal){
-                case "Attendance" -> user_parent.setCenter(Model.getInstance().getViewFactory().getAttendanceViewView());
-                case "AddStudent" -> user_parent.setCenter(Model.getInstance().getViewFactory().getAddStudentViewView());
-                case "CheckIn" -> user_parent.setCenter(Model.getInstance().getViewFactory().getCheckInView());
-                case "CheckOut" -> user_parent.setCenter(Model.getInstance().getViewFactory().getCheckOutView());
+                case ATTENDANCE -> user_parent.setCenter(Model.getInstance().getViewFactory().getAttendanceView());
+                case ADD_STUDENT -> user_parent.setCenter(Model.getInstance().getViewFactory().getAddStudentView());
+                case CHECK_IN -> user_parent.setCenter(Model.getInstance().getViewFactory().getCheckInView());
+                case CHECK_OUT-> user_parent.setCenter(Model.getInstance().getViewFactory().getCheckOutView());
                 default -> user_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
             }
         } );

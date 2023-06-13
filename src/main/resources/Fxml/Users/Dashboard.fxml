@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -16,8 +17,12 @@
       <AnchorPane prefHeight="122.0" prefWidth="240.0">
          <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cases_title" text="FORM ONE ATTENDANCE" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
          <Label layoutX="35.0" layoutY="62.0" styleClass="cases" text="210" />
-         <FontAwesomeIconView fill="WHITE" glyphName="ONE" layoutX="127.0" layoutY="85.0" size="40" />
          <Label layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="3 Absent" />
+         <ImageView fitHeight="45.0" fitWidth="69.0" layoutX="143.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../Images/one.png" />
+            </image>
+         </ImageView>
          <styleClass>
             <String fx:value="cases_card" />
             <String fx:value="cases_gradient" />
@@ -26,8 +31,12 @@
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="122.0" prefWidth="240.0">
          <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cases_title" text="FORM TWO ATTENDANCE" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
          <Label layoutX="35.0" layoutY="62.0" styleClass="cases" text="195" />
-         <FontAwesomeIconView fill="WHITE" glyphName="TWO" layoutX="127.0" layoutY="85.0" size="40" />
          <Label layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="5 Absent" />
+         <ImageView fitHeight="54.0" fitWidth="69.0" layoutX="143.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../Images/two.png" />
+            </image>
+         </ImageView>
          <styleClass>
             <String fx:value="cases_card" />
             <String fx:value="cases_gradient" />
@@ -36,8 +45,12 @@
       <AnchorPane layoutX="200.0" layoutY="10.0" prefHeight="122.0" prefWidth="240.0">
          <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cases_title" text="FORM THREE ATTENDANCE" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
          <Label layoutX="35.0" layoutY="62.0" prefHeight="28.0" prefWidth="34.0" styleClass="cases" text="199" />
-         <FontAwesomeIconView fill="WHITE" glyphName="THREE" layoutX="127.0" layoutY="85.0" size="40" />
          <Label layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="1 Absent" />
+         <ImageView fitHeight="54.0" fitWidth="69.0" layoutX="143.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../Images/three.png" />
+            </image>
+         </ImageView>
          <styleClass>
             <String fx:value="cases_card" />
             <String fx:value="cases_gradient" />
@@ -47,7 +60,11 @@
          <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cases_title" text="FORM FOUR ATTENDANCE" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
          <Label layoutX="35.0" layoutY="62.0" prefHeight="28.0" prefWidth="34.0" styleClass="cases" text="200" />
          <Label layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="0 Absent" />
-         <FontAwesomeIconView fill="WHITE" glyphName="THREE" layoutX="127.0" layoutY="85.0" size="40" />
+         <ImageView fitHeight="54.0" fitWidth="69.0" layoutX="143.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../Images/four.png" />
+            </image>
+         </ImageView>
          <styleClass>
             <String fx:value="cases_card" />
             <String fx:value="cases_gradient" />

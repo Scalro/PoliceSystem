@@ -1,6 +1,7 @@
 package com.samis.biometrics.Controllers.Users;
 
 import com.samis.biometrics.Models.Model;
+import com.samis.biometrics.Views.UserMenuOption;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -40,19 +41,19 @@ public class UserMenuController implements Initializable {
         checkout_btn.setOnAction(event ->  onCheckOut());
     }
     public void onDashboard(){
-        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("Dashboard");
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set(UserMenuOption.DASHBOARD);
     }
     public void onAttendance(){
-        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("Attendance");
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set(UserMenuOption.ATTENDANCE);
     }
 
     public void onAddStudent(){
-        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("AddStudent");
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set(UserMenuOption.ADD_STUDENT);
     }
     public void onCheckIn(){
-        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("CheckIn");
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set(UserMenuOption.CHECK_IN);
     }
     public void onCheckOut(){
-        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set("CheckOut");
+        Model.getInstance().getViewFactory().getUserSelectedMenuItem().set(UserMenuOption.CHECK_OUT);
     }
 }

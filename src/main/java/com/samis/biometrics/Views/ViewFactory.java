@@ -1,26 +1,43 @@
 package com.samis.biometrics.Views;
 
+import com.samis.biometrics.Controllers.Admin.AdminController;
 import com.samis.biometrics.Controllers.Users.UsersController;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ViewFactory {
-    private final StringProperty userSelectedMenuItem;
+    private AccountType loginAccountType;
+    private final ObjectProperty<UserMenuOption> userSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane attendanceView;
     private AnchorPane addStudentView;
     private AnchorPane checkInView;
     private AnchorPane checkOutView;
 
+    /* Admin */
+    private final ObjectProperty<AdminMenuOption> adminSelectedMenuItem;
+    private AnchorPane createUserView;
+    private AnchorPane viewUsersView;
+    private AnchorPane editView;
     public ViewFactory(){
-        this.userSelectedMenuItem = new SimpleStringProperty("");
+        this.loginAccountType = AccountType.USER;
+        this.userSelectedMenuItem = new SimpleObjectProperty<>();
+        this.adminSelectedMenuItem = new SimpleObjectProperty<>();
     }
 
-    public StringProperty getUserSelectedMenuItem() {
+    public AccountType getLoginAccountType() {
+        return loginAccountType;
+    }
+
+    public void setLoginAccountType(AccountType loginAccountType) {
+        this.loginAccountType = loginAccountType;
+    }
+
+    public ObjectProperty<UserMenuOption> getUserSelectedMenuItem() {
         return userSelectedMenuItem;
     }
 
@@ -36,7 +53,7 @@ public class ViewFactory {
         return dashboardView;
     }
 
-    public AnchorPane getAttendanceViewView(){
+    public AnchorPane getAttendanceView(){
         if (attendanceView == null) {
             try {
                 attendanceView = new FXMLLoader(getClass().getResource("/Fxml/Users/Attendance.fxml")).load();
@@ -47,7 +64,7 @@ public class ViewFactory {
         return attendanceView;
     }
 
-    public AnchorPane getAddStudentViewView(){
+    public AnchorPane getAddStudentView(){
         if (addStudentView == null) {
             try {
                 addStudentView = new FXMLLoader(getClass().getResource("/Fxml/Users/AddStudent.fxml")).load();
@@ -80,16 +97,65 @@ public class ViewFactory {
         return checkOutView;
     }
 
+
+
     public void showLoginWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         createStage(loader);
     }
+
     public void showUserWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Users/Users.fxml"));
         UsersController usersController = new UsersController();
         loader.setController(usersController);
 
         createStage(loader);
+    }
+    /*Admin*/
+
+    public ObjectProperty<AdminMenuOption> getAdminSelectedMenuItem() {
+        return adminSelectedMenuItem;
+    }
+
+    public void showAdminWidow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.fxml"));
+        AdminController controller = new AdminController();
+        loader.setController(controller);
+        createStage(loader);
+    }
+
+    public AnchorPane getCreateUserView(){
+
+        if (createUserView == null) {
+            try {
+                createUserView = new FXMLLoader(getClass().getResource("/Fxml/Admin/CreateUser.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return createUserView;
+    }
+
+    public AnchorPane getViewUsersView() {
+        if (viewUsersView == null) {
+            try {
+                viewUsersView = new FXMLLoader(getClass().getResource("/Fxml/Admin/ViewUsers.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return viewUsersView;
+    }
+
+    public AnchorPane getEditView() {
+        if (editView == null) {
+            try {
+                editView = new FXMLLoader(getClass().getResource("/Fxml/Admin/Edit.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return editView;
     }
 
     public void createStage(FXMLLoader loader){
