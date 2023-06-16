@@ -30,7 +30,7 @@
                         <FontAwesomeIconView glyphName="HOME" size="20" />
                      </graphic>
                   </Button>
-                  <Button fx:id="attendance_btn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Attendance">
+                  <Button fx:id="attendance_btn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Students">
                      <graphic>
                         <FontAwesomeIconView glyphName="ADDRESS_BOOK" size="20" />
                      </graphic>
@@ -40,14 +40,14 @@
                         <FontAwesomeIconView glyphName="USER_PLUS" size="20" />
                      </graphic>
                   </Button>
-                  <Button fx:id="checkin_btn" layoutX="10.0" layoutY="36.0" mnemonicParsing="false" text="CheckIn">
+                  <Button fx:id="checkin_btn" layoutX="10.0" layoutY="36.0" mnemonicParsing="false" text="CheckIn/Out">
                      <graphic>
-                        <FontAwesomeIconView glyphName="CHECK" size="20" />
+                        <FontAwesomeIconView glyphName="CHECK_SQUARE" size="20" />
                      </graphic>
                   </Button>
-                  <Button fx:id="checkout_btn" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" text="CheckOut">
+                  <Button fx:id="checkout_btn" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" text="Att. Reports">
                      <graphic>
-                        <FontAwesomeIconView glyphName="SIGN_OUT" size="20" />
+                        <FontAwesomeIconView glyphName="FILE" size="20" />
                      </graphic>
                   </Button>
                   <Line endX="46.29289245605469" endY="-0.621320366859436" startX="-100.0" />

@@ -67,9 +67,19 @@
       <version>4.7.0-9.1.2</version>
     </dependency>
     <dependency>
-      <groupId>org.xerial</groupId>
-      <artifactId>sqlite-jdbc</artifactId>
-      <version>3.36.0.3</version>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+      <dependency>
+          <groupId>org.glassfish</groupId>
+          <artifactId>jsonp-jaxrs-1x</artifactId>
+          <version>2.0.0-RC3</version>
+      </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20210307</version>
     </dependency>
   </dependencies>
 

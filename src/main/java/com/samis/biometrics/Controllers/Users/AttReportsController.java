@@ -1,4 +1,4 @@
 package com.samis.biometrics.Controllers.Users;
 
-public class CheckOutController {
+public class AttReportsController {
 }

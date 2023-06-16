@@ -6,6 +6,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -56,7 +57,7 @@ public class ViewFactory {
     public AnchorPane getAttendanceView(){
         if (attendanceView == null) {
             try {
-                attendanceView = new FXMLLoader(getClass().getResource("/Fxml/Users/Attendance.fxml")).load();
+                attendanceView = new FXMLLoader(getClass().getResource("/Fxml/Users/Students.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -78,7 +79,7 @@ public class ViewFactory {
     public AnchorPane getCheckInView() {
         if (checkInView == null) {
             try {
-                checkInView = new FXMLLoader(getClass().getResource("/Fxml/Users/CheckIn.fxml")).load();
+                checkInView = new FXMLLoader(getClass().getResource("/Fxml/Users/CheckInOut.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -89,7 +90,7 @@ public class ViewFactory {
     public AnchorPane getCheckOutView() {
         if (checkOutView == null) {
             try {
-                checkOutView = new FXMLLoader(getClass().getResource("/Fxml/Users/CheckOut.fxml")).load();
+                checkOutView = new FXMLLoader(getClass().getResource("/Fxml/Users/AttReports.fxml")).load();
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -169,6 +170,8 @@ public class ViewFactory {
         }
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/logo.png"))));
+        stage.setResizable(false);
         stage.setTitle("Samis");
         stage.show();
     }

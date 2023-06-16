@@ -3,12 +3,13 @@ module com.police.policesystem {
     requires javafx.fxml;
     requires java.sql;
     requires de.jensd.fx.glyphs.fontawesome;
-    requires org.xerial.sqlitejdbc;
             
         requires org.controlsfx.controls;
             requires com.dlsc.formsfx;
             requires net.synedra.validatorfx;
-                    
+    requires mysql.connector.j;
+    requires org.json;
+
     opens com.samis.biometrics to javafx.fxml;
     exports com.samis.biometrics;
     exports com.samis.biometrics.Controllers;
