@@ -66,7 +66,7 @@ public class Database {
                 JSONObject data =new JSONObject(response.toString());
                 System.out.println(data.get("allProjects"));
                 JSONArray samis= (JSONArray) data.get("allProjects");
-
+//
 
                 for (int i = 0; i < samis.length(); i++) {
                     JSONObject jsonObject = (JSONObject) samis.get(i);
