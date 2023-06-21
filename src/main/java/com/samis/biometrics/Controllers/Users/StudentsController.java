@@ -1,7 +1,8 @@
 package com.samis.biometrics.Controllers.Users;
 
 import com.samis.biometrics.Models.Attendance;
-import com.samis.biometrics.Models.Database;
+import com.samis.biometrics.Models.DatabaseConnection;
+import com.samis.biometrics.Models.DatabaseConnection;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -72,7 +73,7 @@ public class StudentsController implements Initializable {
         gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         adm_year.setCellValueFactory(new PropertyValueFactory<>("adm_year"));
 
-        listM = Database.getData();
+        listM = DatabaseConnection.getData();
         att_tblView.setItems(listM);
 
         FilteredList<Attendance> filteredList = new FilteredList<>(listM, b -> true);

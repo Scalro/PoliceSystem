@@ -40,7 +40,10 @@
             </Label>
             <PasswordField fx:id="login_passw_fld" styleClass="input_field" />
             <Button fx:id="lgn_btn" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="351.0" styleClass="login_form_container" text="Login" />
-            <Label fx:id="err_lbl" prefHeight="22.0" prefWidth="39.0" text="Error!" />
+            <Label fx:id="err_lbl" prefHeight="30.0" prefWidth="344.0" textFill="RED">
+               <font>
+                  <Font name="Lato Heavy" size="16.0" />
+               </font></Label>
          </children>
       </VBox>
    </children>

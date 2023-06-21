@@ -1,6 +1,7 @@
 package com.samis.biometrics.Controllers.Users;
 
-import com.samis.biometrics.Models.Database;
+import com.samis.biometrics.Models.DatabaseConnection;
+import com.samis.biometrics.Models.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,7 +37,7 @@ public class AddStudentController implements Initializable {
     Connection connection = null;
     PreparedStatement pst = null;
     public void Add_user(){
-        connection = Database.ConnectDb();
+        connection = DatabaseConnection.ConnectDb();
         String sql = "insert into students(name,adm,form,gender,adm_year) values(?,?,?,?,?)";
 
         try {
