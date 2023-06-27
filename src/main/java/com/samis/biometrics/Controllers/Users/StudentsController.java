@@ -2,12 +2,13 @@ package com.samis.biometrics.Controllers.Users;
 
 import com.samis.biometrics.Models.Attendance;
 import com.samis.biometrics.Models.DatabaseConnection;
-import com.samis.biometrics.Models.DatabaseConnection;
+import com.samis.biometrics.Session.Session;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -37,7 +38,7 @@ public class StudentsController implements Initializable {
     public TableColumn<Attendance, String> check_out;
 
     @FXML
-    public TableColumn<Attendance, String>form;
+    public TableColumn<Attendance, String> form;
 
     @FXML
     public TableColumn<Attendance, String> gender;
@@ -46,22 +47,21 @@ public class StudentsController implements Initializable {
     public TableColumn<Attendance, Integer> id;
 
     @FXML
-    public TableColumn<Attendance, String>name;
+    public TableColumn<Attendance, String> name;
 
     @FXML
     public TableColumn<Attendance, String> status;
 
     @FXML
     public TextField search_txtfld;
-
+    @FXML
+    public Button refreshButton;
     ObservableList<Attendance> listM;
 
-    int index = -1;
-    Connection connection = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-
-
+    public void refreshData() {
+        listM.clear();
+        listM.addAll(DatabaseConnection.getData());
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -87,9 +87,9 @@ public class StudentsController implements Initializable {
                     return true;
                 } else if (listM.getName().toLowerCase().contains(search_txtfld)) {
                     return true;
-                }else if (listM.getForm().contains(search_txtfld)) {
+                }else if (listM.getForm().toLowerCase().contains(search_txtfld)) {
                     return true;
-                }else if (listM.getAdm_year().contains(search_txtfld)) {
+                }else if (listM.getAdm_year().toLowerCase().contains(search_txtfld)) {
                     return true;
                 }else return listM.getGender().toLowerCase().contains(search_txtfld);
             });
@@ -100,6 +100,5 @@ public class StudentsController implements Initializable {
         sortedData.comparatorProperty().bind(att_tblView.comparatorProperty());
 
         att_tblView.setItems(sortedData);
-
     }
 }

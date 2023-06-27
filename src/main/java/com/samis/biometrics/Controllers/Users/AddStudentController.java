@@ -4,6 +4,7 @@ import com.samis.biometrics.Models.DatabaseConnection;
 import com.samis.biometrics.Models.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -48,8 +49,11 @@ public class AddStudentController implements Initializable {
             pst.setString(4,gender_lbl.getText());
             pst.setString(5, adm_year.getText());
             pst.execute();
-
-            System.out.println("Added Successfully");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Add");
+            alert.setHeaderText(null);
+            alert.setContentText("Student Added Successfully!");
+            alert.showAndWait();
         }catch (Exception e){
             throw new RuntimeException("Cannot Add", e);
         }

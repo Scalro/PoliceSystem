@@ -29,7 +29,7 @@
             <TableColumn fx:id="status" prefWidth="99.0" text="STATUS" />
         </columns>
       </TableView>
-      <Button layoutX="488.0" layoutY="639.0" mnemonicParsing="false" style="-fx-background-color: ORANGE;" text="REFRESH" textFill="WHITE">
+      <Button fx:id="refreshButton" layoutX="488.0" layoutY="639.0" mnemonicParsing="false" onAction="#refreshData" style="-fx-background-color: ORANGE;" text="REFRESH" textFill="WHITE">
          <font>
             <Font name="Lato Heavy" size="18.0" />
          </font>

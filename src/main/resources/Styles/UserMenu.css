@@ -76,9 +76,10 @@
     -fx-font-weight: bold;
 }
 
-.report_container Label {
+.report_container TextArea {
     -fx-text-fill: #31314a;
-    -fx-text-alignment: center;
+    -fx-pref-width: 80;
+    -fx-pref-height: 60;
     -fx-wrap: center;
 }
 

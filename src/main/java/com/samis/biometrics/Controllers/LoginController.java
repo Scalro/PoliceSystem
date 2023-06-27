@@ -1,7 +1,9 @@
 package com.samis.biometrics.Controllers;
 
+import com.samis.biometrics.Controllers.Users.DashboardController;
 import com.samis.biometrics.Models.DatabaseConnection;
 import com.samis.biometrics.Models.Model;
+import com.samis.biometrics.Session.Session;
 import com.samis.biometrics.Views.AccountType;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -12,11 +14,11 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.sql.Connection;
 
 public class LoginController implements Initializable {
+
     @FXML
     public ChoiceBox<AccountType> acc_choice;
     @FXML
@@ -28,21 +30,33 @@ public class LoginController implements Initializable {
     @FXML
     public PasswordField login_passw_fld;
 
+    private String loggedUsername;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         acc_choice.setItems(FXCollections.observableArrayList(AccountType.USER, AccountType.ADMIN));
         acc_choice.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
         acc_choice.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_choice.getValue()));
-        lgn_btn.setOnAction(event ->onLogin());
+        lgn_btn.setOnAction(event -> onLogin());
     }
+
     private void onLogin() {
         Stage stage = (Stage) err_lbl.getScene().getWindow();
         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.USER) {
             if (!(lgn_username_field.getText().isBlank() && login_passw_fld.getText().isBlank())) {
                 if (validateLogin()) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Login");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Logged In successfully!");
+                    alert.showAndWait();
+                    // Save a preference
+                    Session.savePreference("username", lgn_username_field.getText());
+
+
+
                     Model.getInstance().getViewFactory().showUserWindow();
                     Model.getInstance().getViewFactory().closeStage(stage);
-                    err_lbl.setText("Login Successful");
                 } else {
                     err_lbl.setText("Wrong username or password");
                 }
@@ -53,8 +67,6 @@ public class LoginController implements Initializable {
             Model.getInstance().getViewFactory().showAdminWidow();
         }
     }
-
-
 
     public boolean validateLogin() {
         DatabaseConnection connect = new DatabaseConnection();
@@ -84,6 +96,5 @@ public class LoginController implements Initializable {
         }
         return false;
     }
-
 
 }

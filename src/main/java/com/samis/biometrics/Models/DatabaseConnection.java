@@ -1,17 +1,12 @@
 package com.samis.biometrics.Models;
 
-import com.samis.biometrics.Controllers.LoginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import javafx.scene.control.Alert;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.sql.*;
-
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class DatabaseConnection {
@@ -24,9 +19,13 @@ public class DatabaseConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             databaseLink = DriverManager.getConnection(DB_URL,DB_USERNAME,DB_PASSWORD);
-            System.out.println("Connected to Database.");
+            System.out.println("Connected");
         }catch (SQLException | ClassNotFoundException e) {
-            System.out.println( "Cannot Connect to the Database");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Database");
+            alert.setHeaderText(null);
+            alert.setContentText("Can't connect to Database!");
+            alert.showAndWait();
         }
         return databaseLink;
     }
@@ -40,6 +39,7 @@ public class DatabaseConnection {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()){
+                // Extract data from the ResultSet and create an Attendance object
                 list.add(new Attendance( Integer.parseInt(rs.getString("id")), rs.getString("name")
                         ,rs.getString("adm"), rs.getString("form"),
                         rs.getString("gender"),rs.getString("adm_year")
@@ -50,6 +50,29 @@ public class DatabaseConnection {
         }
         return list;
     }
+
+    public static Map<String, Integer> countStudentsByForm() {
+        Connection connection = ConnectDb();
+        Map<String, Integer> formCounts = new HashMap<>();
+
+        try {
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM students");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String form = rs.getString("form");
+                String numericForm = form.replaceAll("[^\\d]", ""); // Remove non-numeric characters
+                formCounts.putIfAbsent(numericForm, 0);
+                formCounts.put(numericForm, formCounts.get(numericForm) + 1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return formCounts;
+    }
+
+
+
 
 //    public static ObservableList<Attendance> getData() {
 //        ObservableList<Attendance> list = FXCollections.observableArrayList();

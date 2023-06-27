@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,14 +10,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="dashboard" stylesheets="@../../Styles/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <Text layoutX="37.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="username" text="Hi, User" wrappingWidth="110.84099578857422" AnchorPane.leftAnchor="37.0" />
-   <Label layoutX="761.0" layoutY="46.0" prefHeight="18.0" styleClass="date_lbl" text="08, June 2023" AnchorPane.rightAnchor="14.0" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="dashboard" stylesheets="@../../Styles/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.samis.biometrics.Controllers.Users.DashboardController">
+   <Text layoutX="37.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="username" text="Hi," wrappingWidth="33.999999999999886" AnchorPane.leftAnchor="37.0" />
+   <Label fx:id="dateLabel" layoutX="761.0" layoutY="46.0" prefHeight="18.0" styleClass="date_lbl" text="08, June 2023" AnchorPane.rightAnchor="14.0" />
    <HBox layoutX="56.0" layoutY="144.0" prefHeight="142.0" prefWidth="760.0" styleClass="cases_view" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
       <AnchorPane prefHeight="122.0" prefWidth="240.0">
          <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cases_title" text="FORM ONE ATTENDANCE" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
-         <Label layoutX="35.0" layoutY="62.0" styleClass="cases" text="210" />
-         <Label layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="3 Absent" />
+         <Label fx:id="form1Label" layoutX="35.0" layoutY="62.0" prefHeight="28.0" prefWidth="101.0" styleClass="cases" />
+         <Label fx:id="form1AbsentLabel" layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="3 Absent" />
          <ImageView fitHeight="45.0" fitWidth="69.0" layoutX="143.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../Images/one.png" />
@@ -30,8 +30,8 @@
       </AnchorPane>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="122.0" prefWidth="240.0">
          <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cases_title" text="FORM TWO ATTENDANCE" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
-         <Label layoutX="35.0" layoutY="62.0" styleClass="cases" text="195" />
-         <Label layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="5 Absent" />
+         <Label fx:id="form2Label" layoutX="35.0" layoutY="62.0" prefHeight="28.0" prefWidth="101.0" styleClass="cases" />
+         <Label fx:id="form2AbsentLabel" layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="5 Absent" />
          <ImageView fitHeight="54.0" fitWidth="69.0" layoutX="143.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../Images/two.png" />
@@ -44,8 +44,8 @@
       </AnchorPane>
       <AnchorPane layoutX="200.0" layoutY="10.0" prefHeight="122.0" prefWidth="240.0">
          <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cases_title" text="FORM THREE ATTENDANCE" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
-         <Label layoutX="35.0" layoutY="62.0" prefHeight="28.0" prefWidth="34.0" styleClass="cases" text="199" />
-         <Label layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="1 Absent" />
+         <Label fx:id="form3Label" layoutX="35.0" layoutY="62.0" prefHeight="28.0" prefWidth="101.0" styleClass="cases" />
+         <Label fx:id="form3AbsentLabel" layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="1 Absent" />
          <ImageView fitHeight="54.0" fitWidth="69.0" layoutX="143.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../Images/three.png" />
@@ -58,8 +58,8 @@
       </AnchorPane>
       <AnchorPane layoutX="390.0" layoutY="10.0" prefHeight="122.0" prefWidth="240.0">
          <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cases_title" text="FORM FOUR ATTENDANCE" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
-         <Label layoutX="35.0" layoutY="62.0" prefHeight="28.0" prefWidth="34.0" styleClass="cases" text="200" />
-         <Label layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="0 Absent" />
+         <Label fx:id="form4Label" layoutX="35.0" layoutY="62.0" prefHeight="28.0" prefWidth="101.0" styleClass="cases" />
+         <Label fx:id="form4AbsentLabel" layoutX="58.0" layoutY="96.0" styleClass="cases_closed" text="0 Absent" />
          <ImageView fitHeight="54.0" fitWidth="69.0" layoutX="143.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../Images/four.png" />
@@ -74,11 +74,19 @@
    <Text layoutX="37.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texts" text="Dashboard" AnchorPane.leftAnchor="37.0" />
    <Text layoutX="620.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texts" text="Attendance Management System" AnchorPane.rightAnchor="14.0" />
    <Text layoutX="425.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texts" text="Attendance Summary" AnchorPane.leftAnchor="425.0" />
-   <ListView layoutX="19.0" layoutY="334.0" prefHeight="377.0" prefWidth="511.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
    <Text layoutX="376.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="SAMIS SAMPLE SCHOOL" wrappingWidth="297.8409957885742" />
    <Text layoutX="397.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="motto" text="Put Your school details here">
       <font>
          <Font name="System Bold" size="20.0" />
       </font>
    </Text>
+
+
+   <Label fx:id="username_lbl" layoutX="77.0" layoutY="38.0" prefHeight="27.0" prefWidth="101.0" textFill="#000">
+      <font>
+         <Font name="Lato Heavy" size="24.0" />
+      </font>
+   </Label>
+   <PieChart fx:id="piechart" layoutX="192.0" layoutY="336.0" prefHeight="370.0" prefWidth="676.0" />
+
 </AnchorPane>

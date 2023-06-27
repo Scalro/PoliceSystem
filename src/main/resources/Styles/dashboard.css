@@ -53,12 +53,12 @@
     -fx-font-weight: bold;
 }
 .cases {
-    -fx-text-fill: #fff;
+    -fx-text-fill: #2cfc03;
     -fx-font-size: 1.5em;
 }
 
 .cases_closed {
-    -fx-text-fill: #b3afaf;
+    -fx-text-fill: #990511;
 }
 
 .date_lbl {

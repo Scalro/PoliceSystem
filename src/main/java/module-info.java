@@ -9,6 +9,7 @@ module com.police.policesystem {
             requires net.synedra.validatorfx;
     requires mysql.connector.j;
     requires org.json;
+    requires java.prefs;
 
     opens com.samis.biometrics to javafx.fxml;
     exports com.samis.biometrics;

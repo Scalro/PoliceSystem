@@ -1,7 +1,7 @@
 package com.samis.biometrics.Models;
 
 public class Attendance {
-//    int id;
+
     String id,name,adm,form,gender,adm_year,check_in,check_out;
     public Attendance(int id, String name, String adm, String form, String gender, String adm_year, String check_in, String check_out) {
         this.id = String.valueOf(id);
