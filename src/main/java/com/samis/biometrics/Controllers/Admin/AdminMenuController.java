@@ -41,7 +41,6 @@ public class AdminMenuController implements Initializable {
     public void addListeners(){
         create_user_btn.setOnAction(event -> onCreateUser());
         view_user_btn.setOnAction(event -> onViewUser());
-        edit_btn.setOnAction(event -> onEdit());
     }
 
     public void onCreateUser(){
@@ -49,8 +48,5 @@ public class AdminMenuController implements Initializable {
     }
     public void onViewUser(){
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOption.VIEW_USERS);
-    }
-    public void onEdit(){
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOption.EDIT);
     }
 }

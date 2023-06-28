@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -13,7 +16,7 @@
             <Font name="Lato Black Italic" size="18.0" />
          </font>
       </Text>
-      <TableView layoutX="129.0" layoutY="68.0" prefHeight="516.0" prefWidth="851.0">
+      <TableView fx:id="viewUserTbl" layoutX="121.0" layoutY="113.0" prefHeight="416.0" prefWidth="851.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="43.0" text="ID" />
             <TableColumn fx:id="firstNameColumn" prefWidth="167.0" text="FirstName" />
@@ -23,5 +26,27 @@
             <TableColumn fx:id="categoryColumn" prefWidth="139.0" text="Category" />
         </columns>
       </TableView>
+      <TextField fx:id="searchTextfield" layoutX="340.0" layoutY="75.0" prefHeight="26.0" prefWidth="524.0" promptText="Search...." />
+      <Text layoutX="235.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Item:">
+         <font>
+            <Font name="Lato Black Italic" size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="refreshButton" layoutX="437.0" layoutY="556.0" mnemonicParsing="false" onAction="#refreshData" prefHeight="37.0" prefWidth="103.0" style="-fx-background-color: orange;" text="Refresh" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button layoutX="611.0" layoutY="556.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="103.0" style="-fx-background-color: green;" text="Edit" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>
