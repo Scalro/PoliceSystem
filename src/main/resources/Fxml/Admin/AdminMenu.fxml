@@ -37,7 +37,7 @@
                         <FontAwesomeIconView glyphName="EDIT" size="20" />
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="62.0" mnemonicParsing="false" text="Logout">
+                  <Button fx:id="logoutButton" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#setLogoutButton" text="Logout">
                      <graphic>
                         <FontAwesomeIconView glyphName="SIGN_OUT" size="20" />
                      </graphic>

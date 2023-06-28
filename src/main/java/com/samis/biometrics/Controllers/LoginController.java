@@ -44,7 +44,7 @@ public class LoginController implements Initializable {
         Stage stage = (Stage) err_lbl.getScene().getWindow();
         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.USER) {
             if (!(lgn_username_field.getText().isBlank() && login_passw_fld.getText().isBlank())) {
-                if (validateLogin()) {
+                if (validateULogin()) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Login");
                     alert.setHeaderText(null);
@@ -52,9 +52,6 @@ public class LoginController implements Initializable {
                     alert.showAndWait();
                     // Save a preference
                     Session.savePreference("username", lgn_username_field.getText());
-
-
-
                     Model.getInstance().getViewFactory().showUserWindow();
                     Model.getInstance().getViewFactory().closeStage(stage);
                 } else {
@@ -64,11 +61,25 @@ public class LoginController implements Initializable {
                 err_lbl.setText("Please enter username and password");
             }
         } else {
-            Model.getInstance().getViewFactory().showAdminWidow();
+            if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADMIN) {
+                if (!(lgn_username_field.getText().isBlank() && login_passw_fld.getText().isBlank())) {
+                    if (validateALogin()) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Login");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Logged In successfully!");
+                        alert.showAndWait();
+                        Model.getInstance().getViewFactory().showAdminWidow();
+                        Model.getInstance().getViewFactory().closeStage(stage);
+                    } else {
+                        err_lbl.setText("Wrong username or password");
+                    }
+                }
+            }
         }
     }
 
-    public boolean validateLogin() {
+    public boolean validateULogin() {
         DatabaseConnection connect = new DatabaseConnection();
         Connection connection = connect.ConnectDb();
 
@@ -97,4 +108,33 @@ public class LoginController implements Initializable {
         return false;
     }
 
+    public boolean validateALogin() {
+        DatabaseConnection connect = new DatabaseConnection();
+        Connection connection = connect.ConnectDb();
+
+        String verifyLogin = "SELECT count(1) FROM admin WHERE username = ? AND password = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(verifyLogin);
+            statement.setString(1, lgn_username_field.getText());
+            statement.setString(2, login_passw_fld.getText());
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next() && rs.getInt(1) == 1) {
+                err_lbl.setText("Login Successful");
+                return true;
+            } else {
+                err_lbl.setText("Wrong username or password");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
 }
+

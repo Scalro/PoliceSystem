@@ -2,9 +2,12 @@ package com.samis.biometrics.Controllers.Admin;
 
 import com.samis.biometrics.Models.Model;
 import com.samis.biometrics.Views.AdminMenuOption;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,12 +15,24 @@ import java.util.ResourceBundle;
 public class AdminMenuController implements Initializable {
     @FXML
     public Button create_user_btn;
-
     @FXML
     public Button edit_btn;
-
     @FXML
     public Button view_user_btn;
+    @FXML
+    public Button logoutButton;
+
+    @FXML
+    public void setLogoutButton(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText(null);
+        alert.setContentText("Logged out successfully!");
+        alert.showAndWait();
+        Stage stage = (Stage) logoutButton.getScene().getWindow();
+        stage.close();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
