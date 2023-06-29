@@ -15,8 +15,7 @@ import java.util.ResourceBundle;
 public class AdminMenuController implements Initializable {
     @FXML
     public Button create_user_btn;
-    @FXML
-    public Button edit_btn;
+
     @FXML
     public Button view_user_btn;
     @FXML

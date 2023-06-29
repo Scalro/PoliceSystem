@@ -71,7 +71,7 @@ public class DatabaseConnection {
         return formCounts;
     }
 
-    public static ObservableList<AddUser> getUser(){
+    public static ObservableList<AddUser> getUser() {
         Connection connection = ConnectDb();
         ObservableList<AddUser> listU = FXCollections.observableArrayList();
 
@@ -79,17 +79,33 @@ public class DatabaseConnection {
             PreparedStatement ps = connection.prepareStatement("select * from users");
             ResultSet rs = ps.executeQuery();
 
-            while (rs.next()){
-                // Extract data from the ResultSet and create an Attendance object
-                listU.add(new AddUser(Integer.parseInt(rs.getString("id")),rs.getString("firstName")
-                        ,rs.getString("lastName"),rs.getString("userName")
-                        ,rs.getString("password"), rs.getString("category")));
+            while (rs.next()) {
+                // Extract data from the ResultSet and create an AddUser object
+                listU.add(new AddUser(
+                        Integer.parseInt(rs.getString("id")),
+                        rs.getString("firstName"),
+                        rs.getString("lastName"),
+                        rs.getString("userName"),
+                        rs.getString("password"),
+                        rs.getString("category")
+                ));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            // Close the database connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
         return listU;
     }
+
 
 
 

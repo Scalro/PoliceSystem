@@ -33,28 +33,33 @@ public class CreateUserController implements Initializable {
 
     Connection connection = null;
     PreparedStatement pst = null;
-    public void AddUsers(){
+    public void AddUsers() {
         connection = DatabaseConnection.ConnectDb();
-        String sql = "insert into users(firstName,lastName,userName,password,category) values(?,?,?,?,?)";
+        String sql = "INSERT INTO users(firstName, lastName, userName, password, category) VALUES (?, ?, ?, ?, ?)";
 
         try {
             pst = connection.prepareStatement(sql);
-            pst.setString(1,firstNameTfld.getText());
-            pst.setString(2,lastNameTfld.getText());
-            pst.setString(3,userNameTfld.getText());
-            pst.setString(4,passwordTfld.getText());
-            pst.setString(5,categoryTfld.getText());
+            pst.setString(1, firstNameTfld.getText());
+            pst.setString(2, lastNameTfld.getText());
+            pst.setString(3, userNameTfld.getText());
+            pst.setString(4, passwordTfld.getText());
+            pst.setString(5, categoryTfld.getText());
             pst.execute();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Add");
             alert.setHeaderText(null);
             alert.setContentText("User Added Successfully!");
             alert.showAndWait();
-        }catch (Exception e){
+
+            // Refresh the user list and update the table view
+            ViewUsersController viewUsersController = new ViewUsersController();
+            viewUsersController.refreshData();
+            viewUsersController.viewUserTbl.refresh();
+        } catch (Exception e) {
             throw new RuntimeException("Cannot Add User", e);
         }
-
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { createUserButton.setOnAction(event -> AddUsers());}
